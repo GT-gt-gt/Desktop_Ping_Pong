@@ -16,4 +16,5 @@ A little game made by Python which use windows to form graphics (so that you can
 * tkinter  
 if there is any missing, please tell me and I will correct it immediately
 ### Finally
+If you have any suggestion that can make the code better, feel free to tell me  
 I hope you like it
