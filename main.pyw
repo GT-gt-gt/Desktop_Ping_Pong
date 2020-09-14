@@ -6,16 +6,18 @@ import threading
 from pynput.keyboard import Key, Listener
 import random
 
-# function
+# player move
 def p_move(handle, x, y):
     win32gui.MoveWindow(handle, x, win32gui.GetWindowRect(handle)[1] + y, 30, 250, False)
 
+# ball move
 def b_move(x, y):
     win32gui.MoveWindow(b_handle, win32gui.GetWindowRect(b_handle)[0] + x, win32gui.GetWindowRect(b_handle)[1] + y, 30, 30, False)
 
 def b_reset():
     win32gui.MoveWindow(b_handle, 725, 400, 50, 50, False)
 
+# key listener function
 def on_press(key):
     try:
         if key.char == "w":
@@ -35,6 +37,7 @@ def on_release(key):
         flag = False
         return False
 
+# ball movement (I know this comment is useless)
 def ball_movement():
     global direction
     corr = win32gui.GetWindowRect(b_handle)
@@ -87,4 +90,5 @@ if p1_handle and p2_handle and b_handle:
     while flag:
         ball_movement()
 
+# clear the windows
 win32api.ShellExecute(0, "open", "clear.pyw", "", "", 1)
